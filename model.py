@@ -25,7 +25,6 @@ def generate_model(opt):
             model = resnet.resnet18(num_classes=opt.n_classes, shortcut_type=opt.resnet_shortcut,
                                     sample_size=opt.sample_size, sample_duration=opt.sample_duration,
                                     last_fc=last_fc)
-            polices = resnet.get_fine_tuning_parameters(model, 4)
         elif opt.model_depth == 34:
             model = resnet.resnet34(num_classes=opt.n_classes, shortcut_type=opt.resnet_shortcut,
                                     sample_size=opt.sample_size, sample_duration=opt.sample_duration,
@@ -46,6 +45,7 @@ def generate_model(opt):
             model = resnet.resnet200(num_classes=opt.n_classes, shortcut_type=opt.resnet_shortcut,
                                      sample_size=opt.sample_size, sample_duration=opt.sample_duration,
                                      last_fc=last_fc)
+        polices = resnet.get_fine_tuning_parameters(model, opt.ft_begin_index)
     elif opt.model_name == 'wideresnet':
         assert opt.model_depth in [50]
 
@@ -114,9 +114,4 @@ def generate_model(opt):
             model = densenet.densenet264(num_classes=opt.n_classes,
                                          sample_size=opt.sample_size, sample_duration=opt.sample_duration,
                                          last_fc=last_fc)
-    '''
-    if not opt.no_cuda:
-        model = model.cuda()
-        model = nn.DataParallel(model, device_ids=None)
-    '''
     return model, polices

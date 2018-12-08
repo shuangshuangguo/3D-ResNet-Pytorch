@@ -9,6 +9,7 @@ def parse_opts():
     parser.add_argument('--resume', default='', type=str, help='Model file path')
     parser.add_argument('--finetune', type=str, default='')
     parser.add_argument('--result_path', default='output.json', type=str, help='Output file path')
+    parser.add_argument('--ft_begin_index', default=4, type=int)
     parser.add_argument('--mode', default='score', type=str, help='Mode (score | feature). score outputs class scores. feature outputs features (after global average pooling).')
     parser.add_argument('--sample_size', type=int, default=224)
     parser.add_argument('--batch_size', default=32, type=int, help='Batch Size')
