@@ -71,7 +71,7 @@ if __name__ == '__main__':
     opt.arch = '{}-{}'.format(opt.model_name, opt.model_depth)
     opt.sample_duration = 16
     spatial_transform = Compose([Scale(opt.sample_size),
-                                 CenterrCrop(opt.sample_size),
+                                 CenterCrop(opt.sample_size),
                                  ToTensor(1),
                                  Normalize(opt.mean, [1, 1, 1])])
     temporal_transform = LoopPadding(opt.sample_duration)
