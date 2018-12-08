@@ -115,7 +115,7 @@ if __name__ == '__main__':
     val_temporal_transform = LoopPadding(opt.sample_duration)
     val_data = Video(opt.val_list, spatial_transform=val_spatial_transform,
                  temporal_transform=val_temporal_transform,
-                sample_duration=opt.sample_duration, n_samples_for_each_video=0)
+                sample_duration=opt.sample_duration, n_samples_for_each_video=opt.n_val_samples)
     val_loader = torch.utils.data.DataLoader(val_data, batch_size=opt.batch_size,                                              shuffle=False, num_workers=opt.n_threads, pin_memory=True)
     model, policies = generate_model(opt)
     model = nn.DataParallel(model, device_ids=opt.gpus).cuda()
