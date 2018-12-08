@@ -1,1 +1,1 @@
-#### This repo
+#### This repo is modified version for [code](https://github.com/kenshohara/3D-ResNets-PyTorch), which is source code for [CVPR2018 paper](http://openaccess.thecvf.com/content_cvpr_2018/papers/Hara_Can_Spatiotemporal_3D_CVPR_2018_paper.pdf).
