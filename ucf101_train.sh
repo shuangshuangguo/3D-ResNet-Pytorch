@@ -7,7 +7,7 @@ echo Logging output to "$LOG"
 python3 -u train.py --train_list splits/ucf101_train01.txt \
     --val_list splits/ucf101_test01.txt --n_classes 101 \
     --batch_size 128 --sample_size 112 \
-    --lr 0.001 --lr_steps 10 15 20 --epochs 300 \
+    --lr 0.001  --epochs 300 \
     --snapshot_pref ucf101_resnet18_16frame_finetune_112 \
     --finetune pretrain/resnet-18-kinetics.pth
 
