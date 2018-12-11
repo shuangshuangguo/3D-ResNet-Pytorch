@@ -49,3 +49,5 @@ mkdir logs; mkdir model;
 bash hmdb51_train.sh
 ```
 - result
+    - clip level: 53.45%
+    - video leval: 
